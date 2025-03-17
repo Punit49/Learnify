@@ -267,30 +267,24 @@ main{
     position: relative;
 }
 
-.arrow-btn{
-    border-radius: 50%;
-    font-size: 2rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.arrow-btn i{
-    color: rgb(68, 68, 68);
-}
-
 .courses-Tab{
     width: 100%;
     display: flex;
-    gap: 2rem;
+    gap: 2.99rem;
     margin-bottom: 2rem;
+    overflow-x: scroll;
+    padding-left: .8rem;
+    scroll-behavior: smooth;
+}
+
+.courses-Tab::-webkit-scrollbar{
+    display: none;
 }
 
 .course-tag{
-    width: fit-content;
+    letter-spacing: .5px;
+    min-width: 14rem;
+    text-align: center;
     background-color: var(--course-tag-bg);
     padding: .7rem 1rem;
     cursor: pointer;
@@ -303,15 +297,13 @@ main{
 
 /* Course Cards */
 .course-Wrapper{
-    width: 100%;
+    width: 98.5%;
     margin: auto;
-    padding: .5rem;
     gap: 1.75rem;
     display: flex;
-    overflow-x: scroll;
-    /* overflow-y: visible; */
+    overflow-x: hidden;
     align-items: center;
-    /* position: relative; */
+    scroll-behavior: smooth;
 }
 
 .course:hover .course-Card-Popup {
@@ -360,14 +352,132 @@ main{
 }
  
 .course-Card-Popup{
-    display: none;
-    background-color: gray;
-    width: 20rem;
+    background-color: transparent;
+    width: 22rem;
     z-index: 2;
     position: absolute;
     top: 4rem;
     height: 22rem;
+    height: fit-content;
+    font-size: .8rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity .2s ease, transform .2s ease;
 }  
+
+.insideCoursePopup{
+    padding: 1.1rem 1.3rem 1.7rem 1.3rem;
+    background-color: rgb(29, 29, 47);
+    height: 100%;
+    width: 100%;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    box-shadow: 0px 0px 8px 5px rgba(65, 65, 65, 0.2);
+    opacity: inherit;
+    visibility: inherit;
+    transform: inherit;
+    transition: inherit;
+}
+
+.course-Pop-Heading{
+    font-size: 1rem;
+}
+
+.popDescription{
+    color: var(--secondary-text);
+}
+
+.WYLHead{
+    font-size: larger;
+    margin: .7rem 0;
+}
+
+.popWYL{
+    padding: 0 1.4rem;
+    color: var(--secondary-text);
+}
+
+.addPopupCart{
+    border: none;
+    padding: .4rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: white;
+}
+
+/* Premium Badge */
+.preBadge{
+    font-size: .7rem;
+    width: fit-content;
+    background-color: #5022c3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .1rem .4rem;
+    gap: .3rem;
+    border-radius: 2px;
+}
+
+.preBadge img{
+    height: 20px;
+    width: 20px;
+}
+
+/* Navigation Buttons */
+.course-arrow-btn, .courseCatBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 1px 1px 6px 2px rgb(38, 38, 38);
+}
+
+.course-arrow-btn{
+    font-size: 1.5rem;
+    padding: .5rem;
+    height: 3rem;
+    width: 3rem;
+    top: 13rem;
+}
+
+.courseCatBtn{
+    font-size: 1.2rem;
+    padding: .5rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    top: .55rem;
+}
+
+#courseCatLeft{
+    right: -.8rem;
+}
+#courseCatRight{
+    left: -.2rem;
+}
+
+
+.course-arrow-btn i{
+    color: rgb(68, 68, 68);
+}
+
+#course-tab-left{
+    right: -.6rem;
+}
+
+#course-tab-right{
+    left: -.9rem;
+}
+
+
 
 /* Footer Section */
 
