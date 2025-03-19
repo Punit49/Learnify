@@ -187,6 +187,96 @@ courseTagLeftBtn.addEventListener("click", () => {
     coursesTab.scrollLeft += 270;
 });
 
+// Why choose us cards - [needs optimisation] 
+const chooseCards = document.querySelectorAll(".whyChooseUsCards");
+
+chooseCards.forEach(card => {
+    card.addEventListener("click", (event) => {
+        let clickedCard = event.target.closest(".whyChooseUsCards");
+        let clickedQuote = clickedCard.querySelector(".cardQuotes");
+        let cardDetail = clickedCard.querySelector(".cardDetails");
+        if(!clickedQuote) return;
+        let cardPadding;
+
+        // Card is already expanded & needs to wrap -
+        const curCardIndex = window.getComputedStyle(event.target.closest(".whyChooseUsCards")).zIndex; // Getting Z-Index
+        if(card.classList.contains("slided")){
+            card.style.width = 0; // Upto Min. width
+            clickedQuote.classList.remove("textFadeIn");
+            card.classList.remove("slided");
+            cardDetail.classList.remove("textFadeIn");
+            
+            const otherWCUC = document.querySelectorAll(".whyChooseUsCards");
+            otherWCUC.forEach((itemCard) => {
+                const itemIndex = window.getComputedStyle(itemCard).zIndex;
+                if(itemIndex == curCardIndex - 1){
+                    const itemQuote = itemCard.querySelector(".cardQuotes");
+                    const itemDetails = itemCard.querySelector(".cardDetails");
+                    const itemReason = itemCard.querySelector(".cardReason");
+
+                    itemQuote.classList.add("textFadeIn");
+                    itemDetails.classList.add("textFadeIn");
+                    itemReason.style.paddingLeft = `${itemCard.dataset.index}`;
+                }
+            });
+        }
+        
+        // That Means card was wraped and needs to be expands -
+        else {
+            let cardwidth;
+
+            // Deciding how much to be expand -
+            if(curCardIndex == "4"){
+                cardwidth = "55%";
+            }
+            else if (curCardIndex == "3"){
+                cardPadding = "34%";
+                cardwidth = "70%";
+            }
+            else if(curCardIndex == "2"){
+                cardPadding = "54.8%";
+                cardwidth = "83%";
+            }
+
+            // Wrapping other cards whose z-index is greater than clicked card -
+            chooseCards.forEach(item => {
+                item.classList.remove("slided");
+                const cardIndex = window.getComputedStyle(item).zIndex;
+                let BigInxCard = item.querySelector(".cardQuotes");
+                let cardDetail = item.querySelector(".cardDetails");
+
+                if(cardIndex > curCardIndex){
+                    cardDetail.classList.remove("textFadeIn");
+                    BigInxCard.classList.remove("textFadeIn");
+                }
+                if(!(item == event.target) && (cardIndex > curCardIndex)){
+                    item.style.width = 0;
+                }
+                // Expanding cards 
+                else if(cardIndex == "2"){
+                    item.style.width = "83%";
+                }
+                else if(cardIndex == "3"){
+                    item.style.width = "70%";
+                }
+            });
+
+            if(curCardIndex != "1"){
+                card.style.width = `${cardwidth}`;
+                card.classList.add("slided");
+                if(curCardIndex != "4"){
+                    const cardPad = card.querySelector(".cardReason");
+                    cardPad.style.paddingLeft = `${cardPadding}`;
+                }
+            }
+
+            clickedQuote.classList.add("textFadeIn");
+            cardDetail.classList.add("textFadeIn");
+        }
+    })
+});
+
+
 // Window Load Event -
 window.addEventListener("load", () => {
     const Firstcourse = courseData["Web-Development"];
@@ -198,4 +288,3 @@ window.addEventListener("load", () => {
     courseCategory[0].classList.add("tabActive");
     courseCategory[0].classList.remove("course-tag-hover");
 });
-
