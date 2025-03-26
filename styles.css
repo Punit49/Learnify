@@ -51,6 +51,9 @@ header{
     font-size: 2rem;
     font-weight: 400;
     font-family: "Russo One", serif;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
 }
 
 .lText{
@@ -152,16 +155,14 @@ header{
 /* Sidebar */
 .sidebar{
     background-color: #1E1E1E;
-    width: 32vw;
-    /* min-width: 17rem; */
+    width: 60%;
+    min-width: 15rem;
     height: 100vh;
     position: absolute;
-    right: -350px;
+    right: -1000px;
     top: 0px;
     padding: 1rem;
     transition: right .4s linear;
-    /* color: #303141; for light mode  */
-    /* display: none; */
 }
 
 .sidebar ul{
@@ -193,22 +194,20 @@ main{
     width: 100%;
     flex: 1;
     background-color: #121212 ;
-    height: 3000px;
     padding: 1rem;
-    position: absolute;
-    top: 4.5rem;
+    margin-top: 4.5rem;
     padding-top: 3rem;
     color: white;
 }
 
 /* Hero Section */
 .hero-Section{
-    width: 90%;
+    width: 92%;
     display: flex;
     padding: 1rem;
     justify-content: center;
     align-items: start;
-    gap: 1.5rem;
+    gap: 1.8rem;
     margin: auto;
     margin-bottom: 3rem;
 }
@@ -237,7 +236,7 @@ main{
 }
 
 .hero-Button{
-    height: 3rem;
+    height: fit-content;
     background-color: var(--bg-color);
     border: none;
     padding: .65rem 1rem;
@@ -263,11 +262,6 @@ main{
     justify-content: center;
     gap: 1.5rem;
     padding: .5rem;
-}
-
-.course-Category h1, .whyChooseSection h1{
-    font-size: 2.5rem;
-    margin: 2rem 0;
 }
 
 .course-Container{
@@ -483,6 +477,10 @@ main{
 
 #course-tab-right{
     left: -.9rem;
+}
+
+.section-Head{
+    font-size: 2rem;
 }
 
 /* Why choose us section */
@@ -707,7 +705,6 @@ cite {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    min-width: 270px;
     cursor: pointer;
 }
 
@@ -857,6 +854,7 @@ cite {
 /* FAQ Section */
 .FAQSection{
     margin: auto;
+    margin-bottom: 6rem;
     width: 85%;
     padding: 1rem;
 }
@@ -903,7 +901,6 @@ cite {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    /* transition: max-height 0.3s ease-out, padding 0.3s ease-out; */
 }
 
 .FAQQuestion:hover{
@@ -920,13 +917,122 @@ cite {
 }
 
 /* Footer Section */
+.footer-HB{
+    border-top: 2px solid rgb(49, 49, 49);
+    border-bottom: 2px solid rgb(49, 49, 49);
+    width: 100%;
+    padding: 2rem;
+    padding-left: 4rem;
+    color: white;
+    font-size: 1.4rem;
+    background: linear-gradient(to right, #131a21, #0d1521);
+}
 
+.footer-HB p a{
+    text-decoration: none;
+    color: #2c7cbc;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.footer{
+    width: 100%;
+    color: white;
+    padding: 3rem;
+    background: linear-gradient(to right, #131a21, #0d1521);
+}
+
+.footer-items{
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    width: 97%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-tag{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.footer-tag h6{
+    margin-bottom: .5rem;
+    color: rgb(203, 203, 203);
+    font-size: 1.1rem;
+}
+
+.footer-tag li{
+    list-style: none;
+}
+
+
+.footer-tag li a, .footer-tag li{
+    color: var(--secondary-text);
+    text-decoration: none;
+}
+
+.fDown{
+    background: linear-gradient(to right, #05080e, #0a0f17, #020509);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-right: 4rem;
+    flex-wrap: wrap;
+}
+
+.web-title{
+    display: flex;
+    align-items: end;
+    gap: .8rem;
+    flex-wrap: wrap;
+    color: rgb(179, 179, 179);
+}
+
+.copyright{
+    font-size: 1rem;
+    padding: .8rem;
+}
+
+.language{
+    padding: .8rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.language i{
+    margin-right: .4rem;
+}
+
+/* Rular */
+.rular{
+    height: 2px;
+    background-color: rgb(49, 49, 49);
+    width: 90%;
+    margin: 5rem auto 4rem auto;
+}
 
 /* Media Quiries */
 @media (max-width: 1100px) {
-    /* For paument section */
+    /* Hero section */
+    .hero-Left {
+        padding-top: 3rem;
+    }
+    .hero-tagline{
+        font-size: 2rem;
+    }
+    .hero-Description, .hero-Button{
+        font-size: .9rem;
+    }
+    .hero-Button{
+        padding: .35rem .8rem;
+    }
+
+    /* For payment section */
     .plans-Container{
-        width: 100%;
+        width: 96%;
     }
     .allPlans{
         flex-direction: column;
@@ -943,7 +1049,95 @@ cite {
     .plans{
         padding-bottom: 0;
     } 
-    /* Till */
+}
+
+@media (max-width: 900px){
+    header{
+        padding: 0 2rem 0rem 1rem;
+    }
+    .page-Title{
+        font-size: 1.5rem;
+    }
+    :root{
+        --bar-width: 25px;
+        --bar-height: 2.5px;
+    }
+    .section-Head{
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 800px){
+    .hero-Right{
+        display: none;
+    }
+    .hero-Section{
+        justify-content: start;
+    }
+    .hero-Left{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 380px){
+    .course-Category{
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    .hero-tagline{
+        font-size: 1.4rem;
+    }
+    .rular{
+        margin: 2.5rem auto 2rem auto;
+    }
+    .section-Head{
+        font-size: 1.1rem;
+    }
+    .reviewCardContainer{
+        width: 100%;
+    }
+    .reviewCards{
+        font-size: .85rem;
+        padding-bottom: 0rem;
+    }
+    .reviewCardTop{
+        margin-bottom: 0;
+    }
+    .FAQSection{
+        width: 100%;
+        padding: 0;
+    }
+    .FAQAnswer{
+        font-size: .9rem;
+    }
+    .FAQQuestion span, .FAQQuestion i{
+        font-size: .95rem;
+    }
+    .planHeading p{
+        font-size: 1.2rem;
+    }
+    .getPlanBtn{
+        font-size: .9rem;
+        padding: .4rem .2rem;
+    }
+    .FAQQuestion i{
+        font-size: .9rem;
+        right: 1rem;
+    }
+    .footer-items ul{
+        font-size: .8rem;
+    }
+    .footer-tag h6{
+        font-size: .9rem;
+    }
+    .fDown{
+        padding: 1.3rem;
+    }
+    .sidebar{
+        width: 100%;
+    }
 }
 
 /* Extra Classes */
@@ -957,13 +1151,6 @@ cite {
 
 .makeNone{
     display: none;
-}
-
-.rular{
-    height: 2px;
-    background-color: rgb(49, 49, 49);
-    width: 90%;
-    margin: 5rem auto 4rem auto;
 }
 
 .tabActive{

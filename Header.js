@@ -10,6 +10,7 @@ const toggleBars = () => {
         hamburger.classList.remove("makeNone");
         navContent.classList.add("makeNone");
         sidebar.classList.remove("makeNone");
+        sidebar.innerWidth = "80%";
     }
     else {
         hamburger.classList.add("makeNone");
@@ -25,10 +26,10 @@ window.addEventListener("resize", toggleBars);
 const sideCheckBox = document.querySelector(".sideCheckBox");
 hamburger.addEventListener("click", () => {
     if(sideCheckBox.checked){
-        sidebar.style.right = "-30px";
+        sidebar.style.right = "-80px";
     }    
     else{
-        sidebar.style.right = "-350px";
+        sidebar.style.right = "-1000px";
     }
 });
 
